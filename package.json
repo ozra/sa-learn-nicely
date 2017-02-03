@@ -1,0 +1,34 @@
+{
+  "name": "sa-learn-nicely",
+  "version": "0.1.0",
+  "description": "Take care of user flagged spam-mails _one at a time_, in order to not blow up the VPS",
+  "main": "one-at-a-time.js",
+  "dependencies": {
+    "fs-ext": "^0.5.0",
+  },
+  "devDependencies": {
+    "livescript": "^1.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozra/sa-learn-nicely.git"
+  },
+  "keywords": [
+    "antispam",
+    "spamassasin",
+    "sa-learn",
+    "dovecot",
+    "preserve",
+    "ram",
+    "memory"
+  ],
+  "author": "Oscar Campbell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ozra/sa-learn-nicely/issues"
+  },
+  "homepage": "https://github.com/ozra/sa-learn-nicely#readme"
+}
