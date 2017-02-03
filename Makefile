@@ -8,3 +8,6 @@ all:
 install:
 	ln -s /opt/sa-learn-nicely/example-systemd-unit/sa-learn-nicely.service /etc/systemd/system/
 
+update:
+	git pull && make && systemctl daemon-reload && systemctl restart sa-learn-nicely
+
