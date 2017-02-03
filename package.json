@@ -4,7 +4,7 @@
   "description": "Take care of user flagged spam-mails _one at a time_, in order to not blow up the VPS",
   "main": "one-at-a-time.js",
   "dependencies": {
-    "fs-ext": "^0.5.0",
+    "fs-ext": "^0.5.0"
   },
   "devDependencies": {
     "livescript": "^1.5.0"
