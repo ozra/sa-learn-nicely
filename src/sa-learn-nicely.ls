@@ -19,7 +19,7 @@ SPAM-DIR = "/var/tmp/sa-learn-pipeline/"
 LEARN-BIN = "/usr/bin/sa-learn"
 # LEARN-BIN = "no-op"
 # MAIL-USER = "vmail"
-
+PID-FILE = "/var/run/sa-learn-nicely.pid"
 _D CHECK-INTERVAL
 _D TIMEOUT
 _D SPAM-DIR
@@ -81,14 +81,24 @@ forever = ->
 
 verify-fs-integrity = ->
    # pointless exercise - let the pile-up script do it so we don't have to worry about username here
-
    # try
    #    exec-sync "mkdir -p #{SPAM-DIR}"
    # catch err
    #    say "error while ensuring tmp-dirs exist!"
    return
 
+do-pid-stuff = ->
+   try
+      prev-pid = fs.read-file-sync PID-FILE
+      fs.write-file-sync PID-FILE, process.pid.to-string()
+      process.kill prev-pid
+
+   catch err
+      fs.write-file-sync PID-FILE, process.pid.to-string()
+      prev-pid = ""
+
 main = ->
+   do-pid-stuff()
    verify-fs-integrity()
    set-interval forever, CHECK-INTERVAL
    return
