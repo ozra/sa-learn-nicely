@@ -1,0 +1,7 @@
+[Unit]
+Description=sa-learn one mail at a time
+
+[Service]
+Type=simple
+ExecStart=/opt/sa-learn-nicely/bin/sa-learn-nicely
+

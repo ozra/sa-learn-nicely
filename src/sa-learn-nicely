@@ -1,0 +1,4 @@
+#!/bin/sh
+
+node /opt/sa-learn-nicely/bin/sa-learn-nicely.js
+

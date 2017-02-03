@@ -11,36 +11,32 @@ say = (...args) ->
       out += arg # .to-string
    console.log out
 
-_d = say
+_D = say
 
-CHECK-INTERVAL = 0.001.seconds!
+CHECK-INTERVAL = 3.seconds!
 TIMEOUT = 60.seconds!
 SPAM-DIR = "/var/tmp/sa-learn-pipeline/"
 LEARN-BIN = "/usr/bin/sa-learn"
 # LEARN-BIN = "no-op"
+# MAIL-USER = "vmail"
 
-
-_d CHECK-INTERVAL
-_d TIMEOUT
-_d SPAM-DIR
+_D CHECK-INTERVAL
+_D TIMEOUT
+_D SPAM-DIR
+# _D MAIL-USER
 
 check-for-things-to-do = ->
-   # _d ""
-
    check-for-spam-training()
-      
    return
 
 check-for-spam-training = ->
-   # _d "Check for spams to train on"
-
    try
       filenames = fs.readdir-sync SPAM-DIR
    catch err
       say "Had an error! ", err
       return err
 
-   # _d "got filenames: ", filenames
+   # _D "got filenames: ", filenames
 
    for filename in filenames
       do-spam-training filename
@@ -84,10 +80,12 @@ forever = ->
    return
 
 verify-fs-integrity = ->
-   try
-      exec-sync "mkdir -p #{SPAM-DIR}"
-   catch err
-      say "error while ensuring tmp-dirs exist!"
+   # pointless exercise - let the pile-up script do it so we don't have to worry about username here
+
+   # try
+   #    exec-sync "mkdir -p #{SPAM-DIR}"
+   # catch err
+   #    say "error while ensuring tmp-dirs exist!"
    return
 
 main = ->
